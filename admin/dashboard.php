@@ -32,7 +32,7 @@ $sedang_dipinjam = $data_status['total'] ?? 0;
         </div>
         <div class="text-end">
             <span class="badge bg-light text-dark shadow-sm p-2 border">
-                <i class="bi bi-calendar3 me-2"></i><?php echo date('d F Y'); ?>
+                <i class="bi bi-calendar3 me-2"></i><?php echo date('d-M-Y'); ?>
             </span>
         </div>
     </div>

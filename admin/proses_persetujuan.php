@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "<script>
                 alert('Berhasil! Semua data telah diperbarui dan stok buku dikembalikan.');
-                window.location='index.php?link=peminjaman'; 
+                window.location='index.php?link=pengembalian'; 
               </script>";
 
     } catch (Exception $e) {

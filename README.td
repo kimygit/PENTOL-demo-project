@@ -1,5 +1,6 @@
 AKUN 
 
+database = perpustakaan_dudul
 
 ADMIN
 USERNAME = admin

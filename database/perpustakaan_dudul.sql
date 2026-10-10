@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 16, 2026 at 05:35 PM
+-- Generation Time: Apr 16, 2026 at 11:46 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -33,7 +33,7 @@ CREATE TABLE `anggota` (
   `nama` varchar(100) NOT NULL,
   `kelas` varchar(50) NOT NULL,
   `alamat` varchar(200) NOT NULL,
-  `no_hp` int NOT NULL,
+  `no_hp` varchar(255) NOT NULL,
   `tanggal_daftar` date NOT NULL,
   `status` enum('aktif','nonaktif') NOT NULL,
   `id_user` int NOT NULL
@@ -44,8 +44,8 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `no_anggota`, `nama`, `kelas`, `alamat`, `no_hp`, `tanggal_daftar`, `status`, `id_user`) VALUES
-(9, 'AGT173054', 'gogon', 'XII RPL', 'kp lambu', 812321324, '2026-04-16', 'aktif', 13),
-(10, 'AGT173438', 'tatang', 'XII RPL', 'kp bagbagan', 812412412, '2026-04-16', 'aktif', 14);
+(9, 'AGT173054', 'gogon', 'XII RPL', 'kp lambu', '812321324', '2026-04-16', 'aktif', 13),
+(11, 'AG-260416-010', 'tatang', 'XII RPL', 'KP PANYAIRAN\r\n', '0814214', '2026-04-16', 'aktif', 16);
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `buku` (`id_buku`, `foto`, `isbn`, `judul`, `pengarang`, `penerbit`,
 (9, '1776358472.webp', '9789791227002', 'Laskar Pelangi', 'Andrea Hirata', 'Bentang Pustaka', 2005, 'Novel', 'A1', 5, 5),
 (10, '1776358554.webp', '9789799731234', 'Bumi Manusia', 'Pramoedya Ananta Toer', 'Lentera Dipantara', 2005, 'Novel', 'A1', 5, 5),
 (11, '1776358792.webp', '9786028811613', 'Filosofi Kopi', 'Dewi Lestari', 'GagasMedia', 2006, 'Novel', 'A1', 5, 5),
-(12, '1776358956.webp', '9786020312583', 'Cantik Itu Luka', 'Eka Kurniawan', ' Gramedia Pustaka Utama', 2026, 'Novel', 'A1', 5, 5),
+(12, '1776358956.webp', '9786020312583', 'Cantik Itu Luka', 'Eka Kurniawan', ' Gramedia Pustaka Utama', 2026, 'Novel', 'A1', 5, 4),
 (13, '1776359051.webp', '9786020822129', 'pulang', 'Tere Liye', 'Republika', 2012, 'Novel', 'A1', 5, 5),
 (14, '1776359192.webp', '9786024246938', 'Laut Bercerita', 'Leila S. Chudori', 'KPG', 2017, 'Novel', 'A1', 5, 5),
 (15, '1776359263.webp', '9786024125189', 'Filosofi Teras', 'Henry Manampiring', 'Kompas', 2018, 'Novel', 'A1', 5, 5),
@@ -95,7 +95,7 @@ INSERT INTO `buku` (`id_buku`, `foto`, `isbn`, `judul`, `pengarang`, `penerbit`,
 (23, '1776360073.webp', '9786230018596', 'Demon Slayer', 'Koyoharu Gotouge', 'Elex Media', 2020, 'Komik', 'D4', 5, 5),
 (24, '1776360154.webp', '9786230019289', 'Spy x Family', 'Tatsuya Endo', 'Elex Media', 2020, 'Komik', 'D4', 5, 5),
 (25, '1776360234.webp', '9786230030581', 'Blue Lock', 'Muneyuki Kaneshiro', 'Elex Media', 2022, 'Komik', 'D4', 5, 5),
-(26, '1776360351.webp', '9786020323244', 'Kosmos', 'Carl Sagan', 'Gramedia', 2016, 'Komik', 'D4', 5, 5);
+(27, '1776364982.webp', '9786020323244', 'Kosmos ', 'Carl Sagan', 'Gramedia', 2016, 'Sains', 'C3', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -110,6 +110,18 @@ CREATE TABLE `detail_peminjaman` (
   `Qty` int NOT NULL,
   `status_item` enum('dipinjam','dikembalikan','pending') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `detail_peminjaman`
+--
+
+INSERT INTO `detail_peminjaman` (`id_detail`, `id_pinjam`, `id_buku`, `Qty`, `status_item`) VALUES
+(26, 26, 11, 1, 'dikembalikan'),
+(27, 27, 5, 1, 'dikembalikan'),
+(28, 28, 4, 1, 'dikembalikan'),
+(29, 29, 6, 1, 'dikembalikan'),
+(30, 30, 8, 1, 'dikembalikan'),
+(31, 31, 12, 1, 'dipinjam');
 
 -- --------------------------------------------------------
 
@@ -126,6 +138,18 @@ CREATE TABLE `peminjaman` (
   `status_pinjam` enum('dipinjam','selesai','terlambat','pending') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id_pinjam`, `id_anggota`, `id_user`, `tanggal_pinjam`, `tanggal_jatuh_tempo`, `status_pinjam`) VALUES
+(26, 9, 13, '2026-04-01', '2026-04-02', 'selesai'),
+(27, 9, 13, '2026-04-16', '2026-04-17', 'selesai'),
+(28, 9, 13, '2026-04-16', '2026-04-17', 'selesai'),
+(29, 9, 13, '2026-04-16', '2026-04-17', 'selesai'),
+(30, 9, 13, '2026-04-16', '2026-04-17', 'selesai'),
+(31, 9, 13, '2026-04-16', '2026-04-23', 'dipinjam');
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +164,17 @@ CREATE TABLE `pengembalian` (
   `catatan` varchar(200) NOT NULL,
   `status_kembali` enum('selesai','pending') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pengembalian`
+--
+
+INSERT INTO `pengembalian` (`id_kembali`, `id_pinjam`, `tanggal_kembali`, `denda_total`, `catatan`, `status_kembali`) VALUES
+(29, 26, '2026-04-16', 14000, 'Buku telah dikembalikan dan diverifikasi admin.', 'selesai'),
+(30, 27, '2026-04-16', 0, 'Buku telah dikembalikan dan diverifikasi admin.', 'selesai'),
+(31, 28, '2026-04-16', 0, 'Buku telah dikembalikan dan diverifikasi admin.', 'selesai'),
+(32, 29, '2026-04-16', 0, 'Buku telah dikembalikan dan diverifikasi admin.', 'selesai'),
+(33, 30, '2026-04-16', 0, 'Buku telah dikembalikan dan diverifikasi admin.', 'selesai');
 
 -- --------------------------------------------------------
 
@@ -164,7 +199,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_user`, `nama`, `username`, `password`, `email`, `role`, `status_aktif`) VALUES
 (11, 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'emailadmin@gmail.com', 'admin', 1),
 (13, 'gogon', 'gogon', 'bcd724d15cde8c47650fda962968f102', 'emailsiswa@gmail.com', 'user', 1),
-(14, 'tatang', 'tatang', 'bcd724d15cde8c47650fda962968f102', 'emailsiswa@gmail.com', 'user', 1);
+(16, 'tatang', 'tatang', 'bcd724d15cde8c47650fda962968f102', 'SISWA@GMAIL.COM', 'user', 1);
 
 --
 -- Indexes for dumped tables
@@ -220,37 +255,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_anggota` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_buku` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `detail_peminjaman`
 --
 ALTER TABLE `detail_peminjaman`
-  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_detail` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_pinjam` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pinjam` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id_kembali` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_kembali` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
