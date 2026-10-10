@@ -1,0 +1,28 @@
+:root {
+    --pink-wara: #ff6363;
+    --pink-grad: linear-gradient(45deg, #ff4d6d, #ff8a71);
+    --bg-light: #f8f9fa;
+    --sidebar-width: 280px;
+    --sidebar-small: 80px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+#main-wrapper {
+display: flex;
+    width: 100%;
+    /* Gunakan min-height: 100vh agar minimal setinggi layar */
+    min-height: 100vh; 
+    /* Hilangkan overflow jika ada di wrapper ini */
+    align-items: stretch;
+}
+
+.main-content { flex-grow: 1; min-width: 0; }
+.bg-pink { background: linear-gradient(45deg, #ff4d6d, #ff8a71);  }
+.bg-purple { background: linear-gradient(135deg, #8e86f5, #6c5ce7); }
+.bg-green { background: linear-gradient(135deg, #42d392, #00b894); }
+.bg-orange { background: linear-gradient(135deg, #ffbd3d, #fab1a0); }

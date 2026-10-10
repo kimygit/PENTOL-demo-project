@@ -1,0 +1,36 @@
+/* Warna Custom */
+.bg-pink { background: linear-gradient(135deg, #ff8a9a, #ff6363); }
+.bg-purple { background: linear-gradient(135deg, #8e86f5, #6c5ce7); }
+.bg-green { background: linear-gradient(135deg, #42d392, #00b894); }
+.bg-orange { background: linear-gradient(135deg, #ffbd3d, #fab1a0); }
+
+/* Styling Card */
+.card-stat {
+    border-radius: 20px; /* Bikin pojokan melengkung halus */
+    transition: transform 0.3s ease;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px); /* Efek melayang pas di-hover */
+}
+
+/* Kotak Ikon Transparan */
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2); /* Efek kaca putih transparan */
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+/* Badge Trend (Kanan Atas) */
+.badge-trend {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+}

@@ -1,0 +1,49 @@
+/* assets/css/login.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #ff4d6d, #ff8a71);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.login-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.btn-primary {
+    background: #ff6363;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: hsl(0, 100%, 50%);
+    transform: translateY(-2px);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    font-weight: 600;
+    color: #333;
+}

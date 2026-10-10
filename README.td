@@ -1,0 +1,11 @@
+AKUN 
+
+
+ADMIN
+USERNAME = admin
+PASSWORD = admin123
+
+
+SISWA
+USERNAME = gogon
+PASSWORD =siswa

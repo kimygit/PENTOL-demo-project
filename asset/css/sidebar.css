@@ -1,0 +1,106 @@
+#sidebar {
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background: #fff;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1000;
+    border-right: 1px solid #eee;
+    border-right: none !important; /* Hapus garis kaku */
+
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.brand-name {
+    font-weight: 700;
+    color: var(--pink-wara);
+    margin-left: 10px;
+    font-family: 'Gveret Levin', cursive;
+    white-space: nowrap;
+}
+
+.menu-label {
+    display: block;
+    padding: 20px 20px 10px 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #b2bec3;
+    transition: all 0.3s;
+}
+
+.list-group-item {
+    border: none !important;
+    margin: 5px 15px; 
+    border-radius: 12px !important;
+    padding: 15px 20px;
+    color: #636e72;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+    text-decoration: none;
+    width: auto; 
+}
+
+.list-group-item i {
+    font-size: 1.2rem;
+    min-width: 30px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#sidebar .list-group-item.active {
+    background: var(--pink-grad) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(255, 118, 117, 0.3) !important;
+}
+
+.list-group-item:hover:not(.active) {
+    background-color: #fff5f5;
+    color: var(--pink-wara);
+}
+
+/* --- LOGIKA TOGGLE (MENCIUT) --- */
+#main-wrapper.toggled #sidebar {
+    min-width: var(--sidebar-small) !important;
+    max-width: var(--sidebar-small) !important;
+    width: var(--sidebar-small) !important; 
+}
+
+#main-wrapper.toggled .brand-name,
+#main-wrapper.toggled .nav-text,
+#main-wrapper.toggled .admin-panel-text { 
+    display: none !important;
+}
+
+#main-wrapper.toggled .list-group-item {
+    margin: 5px 10px !important;
+    padding: 15px 0 !important;
+    justify-content: center !important;
+    width: 60px !important; 
+    overflow: hidden;
+}
+
+#main-wrapper.toggled .list-group-item i {
+    margin: 0 !important;
+    min-width: unset !important;
+    font-size: 1.4rem; /* Ikon diperbesar dikit biar cakep */
+}
+
+#main-wrapper.toggled .sidebar-header {
+    justify-content: center !important;
+    padding: 20px 0 !important;
+}

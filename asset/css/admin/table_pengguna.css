@@ -1,0 +1,36 @@
+/* 1. Mengubah area teks "Showing 1 to 10..." */
+.dataTables_info {
+    font-size: 0.85rem !important;
+    color: #6c757d !important;
+    padding-top: 15px !important;
+}
+
+/* 2. Mengatur Container Pagination */
+.dataTables_paginate {
+    padding-top: 15px !important;
+}
+
+/* 3. Mengubah Tombol Angka (Pagination) */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: none !important;
+    border-radius: 8px !important; /* Biar bulat kayak input kamu */
+    margin: 0 2px !important;
+    padding: 5px 12px !important;
+    background: #f8f9fa !important; /* Warna abu-abu muda */
+    color: #666 !important;
+    transition: 0.3s;
+}
+
+/* 4. Saat Tombol Angka Aktif (Biru diganti Pink) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: #ff896c !important; /* Warna pink tema kamu */
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(255, 137, 108, 0.2);
+}
+
+/* 5. Efek pas kursor di atas tombol */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #ff896c !important;
+    color: white !important;
+}
+

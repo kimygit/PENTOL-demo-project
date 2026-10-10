@@ -1,0 +1,49 @@
+.top-navbar { background: #fff; padding: 15px 25px; border-bottom: 1px solid #eee; }
+
+#toggle-btn {
+    border: none !important;
+    background: #fff;
+    color: var(--pink-wara);
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#toggle-btn:hover {
+    background: var(--pink-wara);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 99, 99, 0.2);
+}
+
+/* --- LOGIKA TOGGLE (MENCIUT) --- */
+#main-wrapper.toggled #sidebar {
+    min-width: var(--sidebar-small) !important;
+    max-width: var(--sidebar-small) !important;
+}
+
+#main-wrapper.toggled .brand-name,
+#main-wrapper.toggled .nav-text,
+#main-wrapper.toggled .menu-label { 
+    display: none !important;
+}
+
+#main-wrapper.toggled .list-group-item {
+    margin: 5px 10px !important;
+    padding: 15px 0 !important;
+    justify-content: center !important;
+    width: 60px !important; 
+    overflow: hidden;
+}
+
+#main-wrapper.toggled .sidebar-header {
+    justify-content: center !important;
+    padding: 20px 0 !important;
+}
